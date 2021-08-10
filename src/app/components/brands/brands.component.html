@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row justify-content-around">
+    <div
+      class="
+        col-lg-2 col-md-4 col-sm-10 col-12
+        d-flex
+        align-items-center
+        btn
+        p-2
+        m-2
+      "
+      *ngFor="let brand of brands"
+    >
+      <div class="color" [style.background-color]="brand.color"></div>
+      <p class="pl-3 m-0">{{ brand.name }}</p>
+    </div>
+  </div>
+</div>

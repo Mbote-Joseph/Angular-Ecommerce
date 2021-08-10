@@ -1,0 +1,206 @@
+<div class="container py-5">
+  <h2 class="text-center">Sales</h2>
+  <div class="row">
+    <div class="col-md-10 col-sm-12">
+      <h3 class="h5">Sales Insights</h3>
+      <!-- Charts -->
+      <div
+        class="
+          chart
+          d-flex
+          flex-row
+          justify-content-between
+          align-items-center align-content-stretch
+          border
+          h-auto
+          py-md-3
+        "
+      >
+        <div class="line-chart">
+          <app-seller-sales-chart></app-seller-sales-chart>
+        </div>
+        <div
+          class="
+            data
+            w-25
+            d-flex
+            flex-column
+            align-self-center
+            border-left
+            text-center
+            h-100
+          "
+        >
+          <div class="h-100">
+            <p>Resolved</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Received</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Average First Response Time</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Average Response Time</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Resolutions</p>
+            <p>449</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-10 col-sm-12 mt-3">
+      <h3 class="h4"></h3>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Last Purchased</th>
+            <th scope="col">When</th>
+            <th scope="col">Earned</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Vase</td>
+            <td>16 min</td>
+            <td><b>$114.40</b></td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Tea Pot</td>
+            <td>2 hours</td>
+            <td><b>$68.00</b></td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Bonsai</td>
+            <td>1 day</td>
+            <td><b>$128.50</b></td>
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td>Flour</td>
+            <td>1 day</td>
+            <td><b>$58.00</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12 cart">
+          <div class="title">
+            <div class="row">
+              <div class="col">
+                <h4><b>Shopping Cart</b></h4>
+              </div>
+              <div class="col align-self-center">
+                <button type="submit" class="btn btn-default mt-0 py-2">
+                  Delete All Items
+                </button>
+              </div>
+              <div class="col align-self-center text-right text-muted">
+                <button type="submit" class="btn btn-default mt-0 py-2">
+                  View All
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="assets/images/product-1.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+
+              <div class="col">&#x24; 44.00</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="assets/images/product-4.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+
+              <div class="col">&#x24; 44.00</div>
+            </div>
+          </div>
+          <div class="row border-top border-bottom">
+            <div class="row main align-items-center">
+              <div class="col-2">
+                <img class="img-fluid" src="assets/images/product-6.jpg" />
+              </div>
+              <div class="col">
+                <div class="row text-muted">Shirt</div>
+                <div class="row">Cotton T-shirt</div>
+              </div>
+
+              <div class="col">&#x24; 44.00</div>
+            </div>
+          </div>
+          <div
+            class="
+              back-to-shop
+              d-flex
+              flex-row
+              justify-content-between
+              align-items-center
+            "
+          >
+            <a routerLink="../">
+              &#8592;
+              <span class="text-muted">Back to account</span>
+            </a>
+            <button
+              class="btn btn-default w-25 mt-0 py-2 align-self-end"
+              routerLink="../recent"
+            >
+              Add item
+            </button>
+          </div>
+        </div>
+         -->
+    <!-- <div class="col-md-4 summary">
+        <div>
+          <h5><b>Summary</b></h5>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col" style="padding-left: 0">ITEMS 3</div>
+          <div class="col text-right">&euro; 132.00</div>
+        </div>
+        <form>
+          <p>SHIPPING</p>
+          <select>
+            <option class="text-muted">Standard-Delivery- &euro;5.00</option>
+          </select>
+          <p>GIVE CODE</p>
+          <input id="code" placeholder="Enter your code" />
+        </form>
+        <div
+          class="row"
+          style="border-top: 1px solid rgba(0, 0, 0, 0.1); padding: 2vh 0"
+        >
+          <div class="col">TOTAL PRICE</div>
+          <div class="col text-right">&euro; 137.00</div>
+        </div>
+        <button class="btn">CHECKOUT</button>
+      </div> -->
+    <!-- </div>
+    </div>
+ -->
+  </div>
+</div>

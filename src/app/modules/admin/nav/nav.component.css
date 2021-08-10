@@ -1,0 +1,70 @@
+.sidenav-container {
+  height: 100%;
+}
+
+/* .sidenav {
+  width: 200px;
+} */
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-sidenav-content > .mat-toolbar {
+  /* background: var(--theme-color, orange); */
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(3, 187, 133, 1) 45%,
+    rgba(3, 187, 133, 1) 100%
+  );
+}
+
+.logo {
+  text-align: center;
+  padding: 0 1.25em;
+}
+
+.logo img {
+  width: 6em;
+}
+
+i {
+  color: var(--theme-color, orange);
+}
+
+i + span {
+  font-weight: 400;
+}
+
+.profile-card {
+  text-align: center;
+  padding: 0 1.25em;
+}
+
+.profile-card img {
+  width: 6em;
+  height: 6em;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.active {
+  background-color: var(--theme-color, orange);
+}
+
+ul li {
+  list-style: none;
+}
+
+mat-icon {
+  vertical-align: center;
+  /* margin-right: 1.25em; */
+}

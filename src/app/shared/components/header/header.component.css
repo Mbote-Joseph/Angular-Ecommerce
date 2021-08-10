@@ -1,0 +1,78 @@
+nav {
+  position: absolute;
+  background-color: #fff;
+}
+
+.navbar-brand {
+  height: 2.5em;
+}
+
+.logo {
+  width: 7em;
+  padding: 0 0.4em 0.4em;
+}
+
+form {
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+input {
+  flex-grow: 1;
+}
+
+form i {
+  position: absolute;
+  padding: 0;
+  left: 0.6rem;
+  top: 0.6rem;
+  min-width: 2.5rem;
+  color: #495057;
+}
+
+.btn {
+  color: #fff;
+  background-color: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  color: var(--theme-color, orange);
+  background-color: transparent;
+}
+
+.navbar-nav {
+  flex-basis: 25%;
+  align-items: center;
+}
+
+.navbar-nav i {
+  padding-right: 0.2rem;
+}
+
+.navbar-nav a {
+  color: #3a3a3a;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.user {
+  color: var(--theme-color, orange);
+}
+
+.cart {
+  white-space: nowrap;
+}
+
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.nav-item a:hover {
+  color: var(--theme-color, orange);
+  cursor: pointer;
+}

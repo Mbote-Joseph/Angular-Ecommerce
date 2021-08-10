@@ -1,0 +1,375 @@
+<!--dash.component.html-->
+<h1 class="mat-h1 py-3 mb-0">Dashboard</h1>
+<mat-divider></mat-divider>
+<div class="container-md">
+  <div class="row justify-content-center">
+    <div class="col-md-10 col-sm-12">
+      <!-- Buttons -->
+      <div
+        class="
+          buttons
+          py-5
+          d-flex
+          justify-content-between
+          align-content-stretch align-items-stretch
+        "
+      >
+        <button type="button" class="btn btn-outline-dark btn-lg">
+          <p>Sales</p>
+          <p>2538</p>
+        </button>
+        <button type="button" class="btn btn-outline-dark btn-lg">
+          <p>New Users</p>
+          <p>330345</p>
+        </button>
+        <button type="button" class="btn btn-outline-dark btn-lg">
+          <p>Sellers</p>
+          <p>25358</p>
+        </button>
+        <button type="button" class="btn btn-outline-dark btn-lg">
+          <p>Pending Issues</p>
+          <p>368</p>
+        </button>
+      </div>
+      <!--Charts-->
+      <div
+        class="
+          chart
+          d-flex
+          flex-row
+          justify-content-between
+          align-items-center align-content-stretch
+          border
+          h-auto
+          py-md-3
+        "
+      >
+        <div class="line-chart">
+          <app-admin-annual-sales-chart></app-admin-annual-sales-chart>
+        </div>
+        <div
+          class="
+            data
+            w-25
+            d-flex
+            flex-column
+            align-self-center
+            border-left
+            text-center
+            h-100
+          "
+        >
+          <div class="h-100">
+            <p>Resolved</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Received</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Average First Response Time</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Average Response Time</p>
+            <p>449</p>
+            <mat-divider></mat-divider>
+            <p>Resolutions</p>
+            <p>449</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tables -->
+      <div class="tables py-5 d-flex flex-row justify-content-between">
+        <!-- unresolved table -->
+        <div class="table1 mr-2 w-50">
+          <div class="card">
+            <div
+              class="
+                card-header
+                d-flex
+                justify-content-between
+                align-items-baseline
+              "
+            >
+              <span class="mat-h2 mb-0">
+                Unresolved Deliveries <br />
+                <small class="small text-muted">Group: <b>Support</b></small>
+              </span>
+              <a class="btn btn-link pr-0">View details</a>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <p class="">Waiting on Feature Request</p>
+                <p class="text-muted"><b>4250</b></p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Awaiting Customer Response</p>
+                <p class="text-muted"><b>1005</b></p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Waiting Developer Fix</p>
+                <p class="text-muted"><b>914</b></p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Pending</p>
+                <p class="text-muted"><b>281</b></p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- tasks table -->
+        <div class="table2 ml-2 w-50">
+          <div class="card">
+            <div
+              class="
+                card-header
+                d-flex
+                justify-content-between
+                align-items-baseline
+              "
+            >
+              <span class="mat-h2 mb-0">
+                Tasks <br />
+                <small class="small text-muted">Today</small>
+              </span>
+              <a class="btn btn-link pr-0">View all</a>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                  px-3
+                "
+              >
+                <p class="w-75 p-0">
+                  <span>
+                    <div class="form-group mb-2 border-bottom">
+                      <i
+                        class="fa fa-2x fa-plus-square position-absolute"
+                        aria-hidden="true"
+                      ></i>
+                      <input
+                        type="text"
+                        class="form-control position-relative border-0"
+                        name=""
+                        id=""
+                        aria-describedby="helpId"
+                        placeholder="Create New Task"
+                      />
+                    </div>
+                  </span>
+                </p>
+                <!-- <p class="text-muted"><b>4250</b></p> -->
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <p class="">
+                  <span>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          name=""
+                          id=""
+                          value="checkedValue"
+                        />
+                        Finish Delivery Update
+                      </label>
+                    </div>
+                  </span>
+                </p>
+                <p class="text-muted">
+                  <span class="badge badge-warning text-uppercase px-3 py-2">
+                    Urgent
+                  </span>
+                </p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <p class="">
+                  <span>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          name=""
+                          id=""
+                          value="checkedValue"
+                        />
+                        Create New Delivery System
+                      </label>
+                    </div>
+                  </span>
+                </p>
+                <p class="text-muted">
+                  <span class="badge badge-success text-uppercase px-3 py-2">
+                    New
+                  </span>
+                </p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <p class="">
+                  <span>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input
+                          type="checkbox"
+                          class="form-check-input"
+                          name=""
+                          id=""
+                          value="checkedValue"
+                          checked
+                        />
+                        Update Delivery Report
+                      </label>
+                    </div>
+                  </span>
+                </p>
+                <p class="text-muted">
+                  <span class="badge badge-light text-uppercase px-3 py-2">
+                    Normal
+                  </span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Extra tables -->
+      <div class="tables py-5 d-flex flex-row justify-content-between">
+        <!-- notifications table -->
+        <div class="table1 mr-2 w-50">
+          <div class="card">
+            <div
+              class="
+                card-header
+                d-flex
+                justify-content-between
+                align-items-baseline
+              "
+            >
+              <span class="mat-h2 mb-0"> Notifications <br /> </span>
+              <span>
+                <button mat-button [matMenuTriggerFor]="menu">
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item>View All</button>
+                  <button mat-menu-item>Mark All As Read</button>
+                </mat-menu>
+              </span>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-center
+                "
+              >
+                <p class="">Waiting on Feature Request</p>
+                <p class="text-muted">
+                  <b class="badge badge-success badge-pill">4250</b>
+                </p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Awaiting Customer Response</p>
+                <p class="text-muted">
+                  <b class="badge badge-danger badge-pill">1005</b>
+                </p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Waiting Developer Fix</p>
+                <p class="text-muted">
+                  <b class="badge badge-info badge-pill">914</b>
+                </p>
+              </li>
+              <li
+                class="
+                  list-group-item
+                  d-flex
+                  justify-content-between
+                  align-items-cente
+                "
+              >
+                <p class="">Pending</p>
+                <p class="text-muted">
+                  <b class="badge badge-warning badge-pill">281</b>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- invoices table -->
+      </div>
+    </div>
+  </div>
+</div>

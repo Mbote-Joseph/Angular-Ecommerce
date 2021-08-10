@@ -1,0 +1,23 @@
+i {
+  font-size: 50vh;
+  color: var(--theme-color, orange);
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+button {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+  border-radius: 0;
+}
+
+button:hover {
+  color: var(--theme-color, orange);
+  background: #fff;
+  border-color: var(--theme-color, orange);
+}

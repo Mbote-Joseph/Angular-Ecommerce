@@ -1,0 +1,92 @@
+p,
+a,
+span {
+  font-size: 0.9rem;
+}
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul li a {
+  color: #c7c7c7;
+}
+
+ul li a:hover {
+  text-decoration: underline;
+}
+
+h2,
+h3 {
+  padding-top: 1rem;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.brand {
+  font-size: 2rem;
+}
+
+.btn {
+  outline-color: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+}
+
+.btn:active,
+.btn:focus {
+  outline-color: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+  background-color: var(--theme-color, orange);
+  box-shadow: none;
+}
+
+.register,
+.login {
+  background: var(--theme-color, orange);
+  color: #fff;
+}
+
+.register:hover,
+.login:hover {
+  background: #fff;
+  color: var(--theme-color, orange);
+}
+
+.row:first-of-type {
+  border-bottom: 1px solid #c7c7c7;
+}
+
+i {
+  margin-right: 0.6em;
+}
+
+i:hover {
+  color: var(--theme-color, orange);
+  cursor: pointer;
+}
+
+.social-media i {
+  font-size: 1.2rem;
+  margin-right: 1.2rem;
+}
+
+.row:nth-of-type(2) p {
+  font-size: 1.2rem;
+}
+
+.bg-dark {
+  background-color: #323232;
+}
+
+.navbar-brand {
+  height: 4em;
+}
+
+.logo {
+  width: 12em;
+  padding: 0 0.4em 0.4em;
+}

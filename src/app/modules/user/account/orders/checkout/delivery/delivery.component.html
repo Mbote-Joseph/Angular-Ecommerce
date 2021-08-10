@@ -1,0 +1,116 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+      <!-- -->
+      <form class="form-register pt-5 pb-3">
+        <!-- personal details -->
+        <fieldset>
+          <legend>
+            <!-- <h3 class="h3 mb-4 font-weight-normal">Personal Details</h3> -->
+            Personal Details
+          </legend>
+          <!-- name -->
+          <div class="form-row mb-3">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="First name"
+              />
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name" />
+            </div>
+          </div>
+
+          <!-- mobile number -->
+          <div class="form-row mb-3">
+            <div class="col">
+              <input
+                type="tel"
+                class="form-control"
+                placeholder="Mobile Number"
+              />
+            </div>
+          </div>
+
+          <!-- address -->
+          <div class="form-row mb-3">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Delivery Address"
+              />
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- location details -->
+        <fieldset class="my-2">
+          <legend>Location</legend>
+          <div class="form align-items-center">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Region</label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">Eastern</option>
+                <option value="2">Central</option>
+                <option value="3">Coastal</option>
+                <option value="3">Western</option>
+                <option value="3">Northern</option>
+              </select>
+            </div>
+          </div>
+          <div class="form align-items-center">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">City:</label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">Nairobi</option>
+                <option value="2">Mombasa</option>
+                <option value="3">Nakuru</option>
+                <option value="4">Kisumu</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- pickup points -->
+        <fieldset class="my-2">
+          <legend>Pickup Points</legend>
+          <div class="form align-items-center">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2" for="inlineFormCustomSelect">Select</label>
+              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Select...</option>
+                <option value="1">CBD</option>
+                <option value="2">Westland</option>
+                <option value="3">Eastland</option>
+                <option value="3">Uptown</option>
+                <option value="3">Downtown</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+        <!-- submit -->
+        <div class="pt-2 d-flex justify-content-end">
+          <button
+            type="button"
+            class="btn btn-primary btn-lg btn-default mr-2 px-4"
+            [routerLink]="['../payment']"
+          >
+            Next
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary btn-lg btn-default"
+            [routerLink]="['../../']"
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

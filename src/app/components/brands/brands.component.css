@@ -1,0 +1,22 @@
+.col-12 {
+  background-color: #fff;
+  border-radius: 0.5em;
+}
+
+.color {
+  height: 2em;
+  width: 2em;
+  border-radius: 50%;
+}
+
+p {
+  text-transform: capitalize;
+}
+
+.btn {
+  border: 1px solid transparent;
+}
+
+.btn:hover {
+  border-color: #aaaaaa;
+}

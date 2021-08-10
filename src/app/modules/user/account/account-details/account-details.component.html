@@ -1,0 +1,50 @@
+<div class="container py-4">
+  <h4 class="card-header">
+    Account Details
+    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"> </span>
+  </h4>
+  <!-- card -->
+  <div class="row my-3" *ngIf="userDetails.length !== 0">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-muted">First Name</h5>
+          <p class="card-text">{{ userDetails[0].name.split(" ")[0] }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- card -->
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Last Name</h5>
+          <p class="card-text">
+            {{ userDetails[0].name.split(" ")[1] }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row my-3">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Email</h5>
+          <p class="card-text">{{ userDetails[0].email }}</p>
+        </div>
+      </div>
+    </div>
+    <!-- card -->
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Phone Number</h5>
+          <p class="card-text">
+            <span>{{ userDetails[0].phone | uppercase }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

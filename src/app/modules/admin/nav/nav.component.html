@@ -1,0 +1,150 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav w-auto"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar>
+      <mat-toolbar-row class="flex-column justify-content-center">
+        <a class="navbar-brand mr-0 logo" routerLink="/">
+          <img src="assets/images/ecosea_logo_.png" alt="EcoSea Logo" />
+        </a>
+      </mat-toolbar-row>
+      <mat-toolbar-row class="flex-column h-auto">
+        <div class="profile-card">
+          <img src="assets/images/user-2.png" alt="My Dashboard Photo" />
+          <div class="header">
+            <p class="font-weight-light mb-0 mt-3">John Doe</p>
+            <p class="small mb-3">example@email.com</p>
+          </div>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-divider></mat-divider>
+    <mat-divider></mat-divider>
+    <mat-nav-list class="pt-0">
+      <a
+        mat-list-item
+        [routerLink]="['./overview']"
+        [routerLinkActive]="['active']"
+      >
+        Overview
+      </a>
+      <a
+        mat-list-item
+        [routerLink]="['./products']"
+        [routerLinkActive]="['active']"
+        >Products</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['./customers']"
+        [routerLinkActive]="['active']"
+        >Customers</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['./sellers']"
+        [routerLinkActive]="['active']"
+        >Sellers</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['./admins']"
+        [routerLinkActive]="['active']"
+        >Admins</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['./orders']"
+        [routerLinkActive]="['active']"
+        >Orders</a
+      >
+      <a
+        mat-list-item
+        [routerLink]="['./reviews']"
+        [routerLinkActive]="['active']"
+      >
+        Reviews
+      </a>
+      <mat-divider></mat-divider>
+      <mat-divider></mat-divider>
+
+      <h4 matSubheader class="text-uppercase">Account</h4>
+      <a
+        mat-list-item
+        [routerLink]="['./profile']"
+        [routerLinkActive]="['active']"
+        >Profile
+      </a>
+      <a
+        mat-list-item
+        [routerLink]="['./settings']"
+        [routerLinkActive]="['active']"
+        >Settings
+      </a>
+      <a mat-list-item [routerLink]="['/admin/login']">Logout</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="justify-space-around px-0 pl-3">
+      <button
+        type="button"
+        class="bg-dark"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon
+          aria-label="Side nav toggle icon"
+          [ngStyle]="{
+            color: 'var(--theme-color, orange)'
+          }"
+          >menu</mat-icon
+        >
+      </button>
+      <a class="navbar-brand mr-0 logo" routerLink="/">
+        <img src="assets/images/ecosea_logo_.png" alt="EcoSea Logo" />
+      </a>
+      <!-- <div
+        class="
+          d-flex
+          flex-row
+          justify-content-end
+          align-items-stretch align-content-stretch
+          flex-grow-1 flex-shrink-1 flex-basis-0
+        "
+      >
+        <ul class="d-flex flex-row p-0 m-0">
+          <li>
+            <button mat-icon-button>
+              <mat-icon>settings</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-icon-button>
+              <mat-icon>help_outline</mat-icon>
+            </button>
+          </li>
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu">
+              <mat-icon>person_outline</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>exit_to_app </mat-icon>
+                Sign Out
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div> -->
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,10 @@
+.card-header,
+.card-header a {
+  color: var(--theme-color, orange);
+}
+
+.logo {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--theme-color, orange);
+}

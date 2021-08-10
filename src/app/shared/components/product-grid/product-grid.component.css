@@ -1,0 +1,248 @@
+.container-md,
+.container-fluid {
+  background-color: #fff;
+  min-width: 320px;
+}
+
+.title {
+  text-align: center;
+  margin: 0 auto 2em;
+  position: relative;
+  line-height: 3em;
+  color: #555;
+}
+
+.title::after {
+  content: "";
+  background: var(--theme-color, orange);
+  width: 5em;
+  height: 0.15em;
+  border-radius: 0.15em;
+  position: absolute;
+  bottom: -0.2em;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.row {
+  overflow-y: hidden;
+}
+
+.row > div {
+  flex-basis: 20%;
+  padding: 0.6em;
+  margin: 0 auto 3em;
+  min-width: 11em;
+  margin-bottom: 3em;
+  transition: transform 0.25s;
+}
+
+.row > div:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .row {
+    justify-content: space-around;
+  }
+
+  .row > div {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* .row > div:hover {
+  transform: translateY(0.6rem);
+} */
+
+img {
+  width: 100%;
+  animation: shake 4s;
+  animation-iteration-count: infinite;
+  animation-delay: 0.5s;
+}
+
+img:hover {
+  animation: spin 4s infinite ease-in-out;
+}
+
+@keyframes spin {
+  10%,
+  100% {
+    transform: none;
+  }
+  0% {
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    transform: none;
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+.row h3 {
+  color: #555;
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding-top: 0.4em;
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* text-overflow: ellipsis; */
+}
+
+.price {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.offer {
+  font-size: 0.9rem;
+  border-radius: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 0.2em !important;
+  color: #3c833b;
+  background: #ecf7ed;
+}
+
+.stars i {
+  font-size: 0.75em;
+  color: var(--theme-color, orange);
+  /* min-width: 50px; */
+}
+
+.rating {
+  font-size: 0.85em;
+}
+
+.fa-shopping-cart:hover {
+  cursor: pointer;
+  color: var(--theme-color, orange) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .star-rating {
+    justify-content: space-between;
+  }
+}
+
+.carousel-control-prev-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2303bb85' viewBox='0 0 8 8'%3E%3Cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-next-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%2303bb85' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
+}
+
+.carousel-control-prev {
+  justify-content: flex-start;
+}
+
+.carousel-control-next {
+  justify-content: flex-end;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 2em !important;
+}
+
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  width: 2em;
+  height: 3em;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animateTop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animateTop;
+  animation-duration: 0.4s;
+}
+
+/* Add Animation */
+@-webkit-keyframes animateTop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes animateTop {
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+/* The Close Button */
+.close {
+  color: #00000090;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-footer {
+  cursor: pointer;
+}

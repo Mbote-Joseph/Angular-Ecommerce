@@ -1,0 +1,27 @@
+.btn-outline-light {
+  background-color: var(--theme-color, orange) !important;
+  border-color: var(--theme-color, orange) !important;
+  color: #fff;
+}
+
+.btn-outline-light:hover {
+  color: var(--theme-color, orange) !important;
+  background: #fff !important;
+}
+
+.card-text p {
+  margin: 0.1em auto;
+}
+
+i {
+  color: var(--theme-color, orange);
+  font-size: 1.3em;
+}
+
+i:hover {
+  cursor: pointer;
+}
+
+.btn-link {
+  color: var(--theme-color, orange);
+}

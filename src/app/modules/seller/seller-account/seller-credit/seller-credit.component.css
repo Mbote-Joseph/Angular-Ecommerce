@@ -1,0 +1,13 @@
+.row {
+  height: 30rem;
+}
+
+.btn {
+  background: var(--theme-color, orange);
+  color: #fff;
+}
+
+.btn:hover {
+  color: var(--theme-color, orange);
+  background: #fff;
+}

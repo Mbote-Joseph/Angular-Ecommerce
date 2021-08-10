@@ -1,0 +1,136 @@
+<table class="table">
+  <thead class="text-muted">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image & Seller</th>
+      <th scope="col">Category</th>
+      <th scope="col">Upload Time</th>
+      <!-- <th scope="col">Priority</th> -->
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let i of [1, 3]">
+      <!-- id -->
+      <td scope="row">1</td>
+      <!-- photo -->
+      <td scope="row">
+        <div class="d-flex flex-row align-items-center">
+          <img src="assets/images/category-3.jpg" alt="img" />
+          <div class="ml-3">
+            <div>John Doe</div>
+            <div class="text-small text-muted">email@example.com</div>
+          </div>
+        </div>
+      </td>
+      <!-- category -->
+      <td>
+        <span class="badge badge-light text-uppercase px-3 py-2">Retail</span>
+      </td>
+
+      <!-- sales -->
+      <td>
+        <div class="">
+          <div>May 26, 2021</div>
+          <div class="text-small text-muted">6:30PM</div>
+        </div>
+      </td>
+      <!-- priority -->
+      <!-- <td>
+        <span class="badge badge-danger text-uppercase px-3 py-2">High</span>
+      </td> -->
+      <!-- extra icon -->
+      <td>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <!-- <i class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
+      </td>
+    </tr>
+    <tr *ngFor="let i of [1, 2]">
+      <!-- id -->
+      <td scope="row">1</td>
+      <!-- photo -->
+      <td scope="row">
+        <div class="d-flex flex-row align-items-center">
+          <img src="assets/images/category-1.jpg" alt="img" />
+          <div class="ml-3">
+            <div>Admin</div>
+            <div class="text-small text-muted">Lorem Ipsum</div>
+          </div>
+        </div>
+      </td>
+      <!-- category -->
+      <td>
+        <span class="badge badge-light text-uppercase px-3 py-2">
+          Wholesale
+        </span>
+      </td>
+      <!-- sales -->
+      <td>
+        <div class="">
+          <div>May 26, 2021</div>
+          <div class="text-small text-muted">6:30PM</div>
+        </div>
+      </td>
+      <!-- priority -->
+      <!-- <td>
+        <span class="badge badge-warning text-uppercase px-3 py-2">Low</span>
+      </td> -->
+      <!-- extra icon -->
+      <td>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <!-- <i class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
+      </td>
+    </tr>
+    <tr *ngFor="let i of [1, 3]">
+      <!-- id -->
+      <td scope="row">1</td>
+      <!-- photo -->
+      <td scope="row">
+        <div class="d-flex flex-row align-items-center">
+          <img src="assets/images/category-2.jpg" alt="img" />
+          <div class="ml-3">
+            <div>Admin</div>
+            <div class="text-small text-muted">Lorem Ipsum</div>
+          </div>
+        </div>
+      </td>
+      <!-- category -->
+      <td>
+        <span class="badge badge-light text-uppercase px-3 py-2">
+          Manufacturer
+        </span>
+      </td>
+      <!-- sales -->
+      <td>
+        <div class="">
+          <div>May 26, 2021</div>
+          <div class="text-small text-muted">6:30PM</div>
+        </div>
+      </td>
+      <!-- priority -->
+      <!-- <td>
+        <span class="badge badge-success text-uppercase px-3 py-2">Normal</span>
+      </td> -->
+      <!-- extra icon -->
+      <td>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Delete</button>
+        </mat-menu>
+        <!-- <i class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,14 @@
+img {
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+}
+
+.badge-light {
+  background: var(--theme-color, orange);
+}
+
+li:hover {
+  background: #cecece;
+  cursor: pointer;
+}

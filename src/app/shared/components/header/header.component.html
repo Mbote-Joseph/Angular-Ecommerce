@@ -1,0 +1,125 @@
+<!-- Navigation -->
+<nav
+  *ngIf="loggedIn"
+  class="navbar navbar-expand-md navbar-light fixed-top my-md-3"
+>
+  <a class="navbar-brand" routerLink="/">
+    <img class="logo" src="assets/images/ecosea_logo_.png" alt="EcoSea Logo" />
+  </a>
+  <button
+    class="navbar-toggler px-0"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <!-- Search Form -->
+    <form class="form-inline my-2 my-lg-0 mx-lg-4">
+      <span><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input
+        class="form-control mr-2 pl-5"
+        type="text"
+        placeholder="Search products, brands and categories"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-info my-2 my-sm-0 mr-0" type="submit">
+        Search
+      </button>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav">
+      <li class="nav-item dropdown">
+        <a
+          [routerLink]="['/user']"
+          class="nav-link dropdown-toggle"
+          id="dropdown01"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fa fa-2x fa-user-circle-o user" aria-hidden="true"></i>
+        </a>
+      </li>
+      <li class="nav-item cart">
+        <a class="nav-link" [routerLink]="['/cart']">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Cart
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- If Logged In -->
+<nav
+  *ngIf="!loggedIn"
+  class="navbar navbar-expand-md navbar-light fixed-top my-md-3"
+>
+  <a class="navbar-brand" routerLink="/">
+    <img class="logo" src="assets/images/ecosea_logo_.png" alt="EcoSea Logo" />
+  </a>
+  <button
+    class="navbar-toggler px-0"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarsExampleDefault"
+    aria-controls="navbarsExampleDefault"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <!-- Search Form -->
+    <form class="form-inline my-2 my-lg-0 mx-lg-4 flex-grow-1">
+      <span><i class="fa fa-search" aria-hidden="true"></i></span>
+      <input
+        class="form-control mr-2 pl-5"
+        type="text"
+        placeholder="Search products, brands and categories"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-info my-2 my-sm-0 mr-0" type="submit">
+        Search
+      </button>
+    </form>
+
+    <!-- Navbar -->
+    <ul class="navbar-nav d-flex justify-content-around">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          id="dropdown01"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          Login
+          <i class="fa fa-chevron-down" aria-hidden="true"></i>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown01">
+          <a class="dropdown-item" [routerLink]="['/user/login']">Login</a>
+          <a class="dropdown-item" [routerLink]="['/user/register']">
+            Create an account
+          </a>
+        </div>
+      </li>
+      <li class="nav-item cart">
+        <a class="nav-link" [routerLink]="['/cart']">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          Cart
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<app-help></app-help>

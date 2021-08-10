@@ -1,0 +1,65 @@
+<table class="table">
+  <thead class="text-muted">
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Product</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Upload Time</th>
+      <th scope="col">Category</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <!-- order ID -->
+      <td scope="row">{{ product["product_id"] }}</td>
+      <!-- Product -->
+      <td scope="row">
+        <div class="d-flex flex-row align-items-center">
+          <img [src]="product['attributes']['productImages'][0]" alt="img" />
+          <div class="ml-3">
+            <div>
+              <span>{{ product["attributes"]["product_name"] }}</span>
+            </div>
+            <div>
+              {{ product["attributes"]["currency"] }}
+              {{ product["attributes"]["product_price"] }}
+            </div>
+            <div class="text-small text-muted">
+              {{ product["attributes"]["product_details"] }}
+            </div>
+          </div>
+        </div>
+      </td>
+      <!-- seller -->
+      <td>
+        <div class="">John Doe</div>
+        <div class="text-small text-muted">email@example.com</div>
+      </td>
+      <!-- review date -->
+      <td>
+        <div class="">
+          <div>May 26, 2021</div>
+          <div class="text-small text-muted">6:30PM</div>
+        </div>
+      </td>
+      <!-- category -->
+      <td>
+        <span class="badge badge-light text-uppercase px-3 py-2">Retail</span>
+      </td>
+      <!-- extra icon -->
+      <td>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Edit</button>
+          <button mat-menu-item (click)="deleteProduct(product['product_id'])">
+            Delete
+          </button>
+        </mat-menu>
+        <!-- <i class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,65 @@
+.col-6.det div {
+  flex-grow: 2;
+  flex-basis: 0;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.icons img {
+  height: 5em;
+  width: 5em;
+  padding: 0.5em;
+  border: 1px solid #999999;
+  margin-right: 1em;
+  opacity: 0.7;
+}
+
+.icons img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.checkout button {
+  width: 12rem;
+  border-radius: 0;
+  text-transform: uppercase;
+}
+
+button {
+  color: var(--theme-color, orange);
+}
+
+button:hover {
+  color: var(--theme-color, orange);
+}
+
+.voucher button,
+.checkout button {
+  color: #fff;
+  background: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+}
+
+.voucher button:hover,
+.checkout button:hover {
+  color: var(--theme-color, orange);
+  background: #fff;
+  border-color: var(--theme-color, orange);
+}
+
+.need-help {
+  font-size: 1.2rem;
+}
+
+.need-help a {
+  color: var(--theme-color, orange);
+  font-weight: 400;
+}
+
+.need-help a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

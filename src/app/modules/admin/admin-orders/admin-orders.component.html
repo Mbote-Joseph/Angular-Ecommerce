@@ -1,0 +1,64 @@
+<div class="container-fluid">
+  <h1 class="mat-h1 pt-3">Orders</h1>
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <table class="table">
+        <thead class="text-muted">
+          <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Customer</th>
+            <th scope="col">Seller</th>
+            <th scope="col">Date & Time</th>
+            <th scope="col">Category</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let i of [1, 2, 3, 4, 5, 6, 7]">
+            <!-- order ID -->
+            <td scope="row">#1</td>
+            <!-- Customer -->
+            <td scope="row">
+              <div class="d-flex flex-row align-items-center">
+                <img src="assets/images/user-2.png" alt="img" />
+                <div class="ml-3">
+                  <div>John Doe</div>
+                  <div class="text-small text-muted">email@example.com</div>
+                </div>
+              </div>
+            </td>
+            <!-- seller -->
+            <td>
+              <div class="">John Doe</div>
+              <div class="text-small text-muted">email@example.com</div>
+            </td>
+            <!-- review date -->
+            <td>
+              <div class="">
+                <div>May 26, 2021</div>
+                <div class="text-small text-muted">6:30PM</div>
+              </div>
+            </td>
+            <!-- priority -->
+            <td>
+              <span class="badge badge-light text-uppercase px-3 py-2">
+                Manufacturer
+              </span>
+            </td>
+            <!-- extra icon -->
+            <td>
+              <button mat-button [matMenuTriggerFor]="menu">
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>Update</button>
+                <button mat-menu-item>Cancel</button>
+              </mat-menu>
+              <!-- <i class="fa fa-ellipsis-v" aria-hidden="true"></i> -->
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

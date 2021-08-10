@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-title text-uppercase text-center">
+    <h3 class="pt-3 mb-0">Add slider image</h3>
+  </div>
+  <div class="card-body pb-0">
+    <form
+      class="form-reset pb-3"
+      [formGroup]="adminAddSlider"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- password -->
+      <div class="form-group">
+        <!-- add slider -->
+        <div class="form-row row justify-content-center">
+          <label class="btn btn-default w-50 text-uppercase">
+            Add Picture<input
+              type="file"
+              formControlName="slider"
+              placeholder="Slider Image"
+              class="form-control"
+              [ngClass]="{
+                'is-invalid': submitted && f.slider.errors
+              }"
+              multiple
+              hidden
+            />
+          </label>
+        </div>
+        <!-- add slider errors -->
+        <div *ngIf="submitted && f.slider.errors" class="invalid-feedback">
+          <div *ngIf="f.slider.errors.required">Image is required</div>
+        </div>
+      </div>
+      <!-- </div> -->
+      <!-- submit -->
+      <div class="row text-center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-secondary">
+          <button
+            class="btn btn-outline-light btn-block mt-2 text-uppercase"
+            type="submit"
+          >
+            Upload
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

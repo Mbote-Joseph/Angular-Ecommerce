@@ -1,0 +1,16 @@
+.btn {
+  background: var(--theme-color, orange);
+  color: #fff;
+  border-color: var(--theme-color, orange);
+}
+
+.btn:hover {
+  background: #fff;
+  color: var(--theme-color, orange);
+}
+
+.card-title h3 {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: var(--theme-color, orange);
+}

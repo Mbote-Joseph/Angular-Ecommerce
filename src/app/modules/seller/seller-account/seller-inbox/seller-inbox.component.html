@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12">
+      <div class="card">
+        <div
+          class="
+            card-header
+            d-flex
+            flex-row
+            align-items-center
+            justify-content-start
+          "
+        >
+          <a (click)="onBack()" class="align-content-start">
+            &#8592;
+            <span class="text-muted">Back</span>
+          </a>
+          <a class="logo ml-4" [routerLink]="['/']">LOGO</a>
+          <h3 class="h3 text-center w-50">Inbox</h3>
+        </div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

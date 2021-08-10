@@ -1,0 +1,125 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-sm-12">
+      <div class="card">
+        <div
+          class="
+            card-header
+            d-flex
+            flex-row
+            align-items-center
+            justify-content-start
+          "
+        >
+          <a routerLink="../" class="align-content-start">
+            &#8592;
+            <span class="text-muted">Back</span>
+          </a>
+          <a class="logo ml-4" [routerLink]="['/']">LOGO</a>
+          <h3 class="h3 text-center w-50">Add Items</h3>
+        </div>
+        <div class="card-body">
+          <!-- form -->
+          <form>
+            <!-- product pictures -->
+            <div class="form-group row">
+              <div class="col-sm-3">Product Pictures</div>
+              <div class="col-sm-9">
+                <label class="btn btn-default w-50">
+                  Add <input type="file" multiple hidden />
+                </label>
+              </div>
+            </div>
+            <!-- product details -->
+            <div class="form-group row">
+              <label for="product-details" class="col-sm-3 col-form-label">
+                Product Details
+              </label>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="product-details"
+                  id="product-details"
+                  placeholder="Product Details"
+                />
+              </div>
+            </div>
+            <!-- product description -->
+            <div class="form-group row">
+              <label for="product-description" class="col-sm-3 col-form-label">
+                Product Description
+              </label>
+              <div class="col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  name="product-description"
+                  id="product-description"
+                  placeholder="Product Description"
+                />
+              </div>
+            </div>
+            <!-- product price -->
+            <div class="form-group row">
+              <label for="product-price" class="col-sm-3 col-form-label">
+                Product Price
+              </label>
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="product-price"
+                  id="product-price"
+                  placeholder="Product Price"
+                  min="0.0"
+                  max="10000.0"
+                  step="0.1"
+                />
+              </div>
+            </div>
+            <!-- discounts(optional) -->
+            <div class="form-group row">
+              <label for="product-Discount" class="col-sm-3 col-form-label">
+                Product Discount
+              </label>
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  class="form-control"
+                  name="product-Discount"
+                  id="product-Discount"
+                  placeholder="Product Discount"
+                  min="0.0"
+                  max="1000.0"
+                  step="0.1"
+                />
+              </div>
+            </div>
+            <!--  -->
+            <div class="form-group row">
+              <label for="email" class="col-sm-3 col-form-label">Email</label>
+              <div class="col-sm-9">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <!-- upload -->
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <button type="submit" class="btn btn-primary mt-3">
+                  <i class="fa fa-upload mr-2" aria-hidden="true"></i>
+                  Upload
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

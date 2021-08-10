@@ -1,0 +1,46 @@
+.col-6 img {
+  width: unset;
+  max-height: 10em;
+}
+
+.col-6.img {
+  flex-grow: 0.5;
+  flex-basis: 0;
+}
+
+.col-6.det div {
+  flex-grow: 2;
+  flex-basis: 0;
+}
+
+.icons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.icons img {
+  height: 5rem;
+  width: 5rem;
+  padding: 0.5em;
+  border: 1px solid #999999;
+  border-radius: 5%;
+  margin-right: 1em;
+  opacity: 0.7;
+}
+
+.icons img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+button {
+  color: #fff;
+  background: var(--theme-color, orange);
+  border-color: var(--theme-color, orange);
+}
+
+button:hover {
+  color: var(--theme-color, orange);
+  background: #fff;
+  border-color: var(--theme-color, orange);
+}

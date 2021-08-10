@@ -1,0 +1,72 @@
+<div class="card">
+  <div class="card-title text-uppercase text-center">
+    <h3 class="pt-3 mb-0">Update Settings</h3>
+  </div>
+  <div class="card-body pb-0">
+    <form
+      class="form-reset pb-3"
+      [formGroup]="adminEditSettings"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- new category -->
+      <div class="form-group">
+        <!-- old category -->
+        <div class="form-row row">
+          <label class="sr-only">Old Setting</label>
+          <input
+            type="text"
+            formControlName="setting"
+            placeholder="Old Setting"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': submitted && f.setting.errors
+            }"
+          />
+          <!-- add setting errors -->
+          <div *ngIf="submitted && f.setting.errors" class="invalid-feedback">
+            <div *ngIf="f.setting.errors.required">Setting is required</div>
+            <div *ngIf="f.setting.errors.maxlength">
+              Setting name must not be more than 20 characters
+            </div>
+          </div>
+        </div>
+        <!-- new category -->
+        <div class="form-row row">
+          <label class="sr-only">New Setting</label>
+          <input
+            type="text"
+            formControlName="newSetting"
+            placeholder="New setting"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': submitted && f.newSetting.errors
+            }"
+          />
+          <!-- add setting errors -->
+          <div
+            *ngIf="submitted && f.newSetting.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.newSetting.errors.required">Setting is required</div>
+            <div *ngIf="f.newSetting.errors.maxlength">
+              Setting name must not be more than 20 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <div class="row text-center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-secondary">
+          <button
+            class="btn btn-outline-light btn-block mt-2 text-uppercase"
+            type="submit"
+          >
+            Update Setting
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

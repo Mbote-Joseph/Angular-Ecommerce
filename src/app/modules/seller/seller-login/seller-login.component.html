@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form
+        class="form-login pt-5 pb-3"
+        [formGroup]="sellerLoginForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <!-- email -->
+        <div class="form-group">
+          <div class="form-row">
+            <div class="col">
+              <input
+                type="email"
+                formControlName="email"
+                class="form-control"
+                placeholder="Email Address"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+              />
+            </div>
+            <!-- email error -->
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">Email is required</div>
+              <div *ngIf="f.email.errors.email">
+                Email must be a valid email address
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- password -->
+        <div class="form-group">
+          <div class="form-row">
+            <label class="sr-only">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              placeholder="Password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+            />
+            <!-- password errors -->
+            <div
+              *ngIf="submitted && f.password.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.password.errors.required">Password is required</div>
+              <div *ngIf="f.password.errors.minlength">
+                Password must be at least 6 characters
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- checkbox -->
+        <div class="form-group form-check checkbox mb-3">
+          <input
+            type="checkbox"
+            formControlName="checkbox"
+            id="rememberMe"
+            class="form-check-input"
+          />
+          <label for="acceptTerms" class="form-check-label">Remember Me</label>
+        </div>
+        <!-- submit -->
+        <button
+          class="btn btn-lg btn-primary btn-block btn-default"
+          type="submit"
+        >
+          Sign in
+        </button>
+        <div class="my-3 strike">
+          <span>or</span>
+        </div>
+        <button class="btn btn-lg btn-primary btn-block btn-fb" type="submit">
+          Login with Facebook
+        </button>
+        <button class="btn btn-lg btn-outline-dark btn-block" type="submit">
+          Login with Google
+        </button>
+        <p class="first-time mt-5">
+          First time here?
+          <a [routerLink]="['../register']">Register</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+
+/*Bootstrap, FontAwesome imports */
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~font-awesome/css/font-awesome.min.css";
+
+:root {
+  --theme-color: #03bb85;
+  /* --theme-color: #fb8434; */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: #e5e5e5 !important;
+  margin: 0;
+}
+
+main {
+  padding-top: 6rem;
+}

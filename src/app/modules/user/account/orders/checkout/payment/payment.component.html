@@ -1,0 +1,105 @@
+<div class="container pb-3">
+  <div class="row m-0 p-0 pt-4 pb-2 border-bottom justify-content-center">
+    <div class="col-6 img">
+      <img class="" src="assets/images/product-10.jpg" alt="" />
+    </div>
+    <div class="col-6 det d-flex">
+      <div class="d-flex flex-column align-items-start pt-3">
+        <p>Items Total</p>
+        <p>Delivery Charges</p>
+        <p>VAT</p>
+        <hr />
+        <p class="h3">Total</p>
+      </div>
+      <div class="d-flex flex-column align-items-center pt-3">
+        <p>$49.50</p>
+        <p>$1.2</p>
+        <p>$1</p>
+        <hr />
+        <p class="h3">$51.50</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="voucher my-5">
+    <form>
+      <fieldset class="form-inline">
+        <legend>Voucher</legend>
+        <div class="d-flex" style="width: 80%">
+          <div class="form-group mr-5">
+            <p class="m-0">Have a voucher?</p>
+          </div>
+          <div
+            class="form-group justify-content-center align-items-center mr-5"
+          >
+            <label for="vouchercode" class=""></label>
+            <input
+              type="text"
+              class="form-control"
+              id="vouchercode"
+              placeholder="Enter voucher code"
+            />
+          </div>
+          <button type="submit" class="btn btn-outline-dark btn-lg">Use</button>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+  <!-- payment -->
+  <div class="pay-options">
+    <h3 class="h2 m-1">Payment Options</h3>
+    <div class="custom-control custom-radio pb-3">
+      <input
+        type="radio"
+        id="customRadio1"
+        name="customRadio"
+        class="custom-control-input"
+      />
+      <label class="custom-control-label py-2" for="customRadio1">
+        Pay Now
+      </label>
+      <div class="icons">
+        <img src="assets/images/payment/mpesa_logo.svg" alt="Mpesa" />
+        <img src="assets/images/payment/paypal_logo.svg" alt="Paypal" />
+        <img src="assets/images/payment/mtn_logo.svg" alt="MTN" />
+        <img src="assets/images/payment/mc_logo.svg" alt="MasterCard" />
+        <img src="assets/images/payment/visa_logo.svg" alt="VISA" />
+      </div>
+    </div>
+    <div class="custom-control custom-radio">
+      <input
+        type="radio"
+        id="customRadio2"
+        name="customRadio"
+        class="custom-control-input"
+      />
+      <label class="custom-control-label py-2" for="customRadio2">
+        Pay on delivery
+      </label>
+      <div class="icons">
+        <img src="assets/images/payment/mpesa_logo.svg" alt="Mpesa" />
+        <img src="assets/images/payment/paypal_logo.svg" alt="Paypal" />
+        <img src="assets/images/payment/mtn_logo.svg" alt="MTN" />
+        <img src="assets/images/payment/mc_logo.svg" alt="MasterCard" />
+        <img src="assets/images/payment/visa_logo.svg" alt="VISA" />
+      </div>
+    </div>
+  </div>
+  <!-- submit -->
+  <div class="pt-2 d-flex justify-content-end">
+    <button
+      type="button"
+      class="btn btn-primary btn-lg btn-default mr-2 px-4"
+      [routerLink]="['../summary']"
+    >
+      Next
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary btn-lg btn-default"
+      [routerLink]="['../../']"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

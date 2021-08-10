@@ -1,0 +1,74 @@
+<div class="card">
+  <div class="card-title text-uppercase text-center">
+    <h3 class="pt-3 mb-0">Update Category</h3>
+  </div>
+  <div class="card-body pb-0">
+    <form
+      class="form-reset pb-3"
+      [formGroup]="adminEditCategory"
+      (ngSubmit)="onSubmit()"
+    >
+      <!-- new category -->
+      <div class="form-group">
+        <!-- old category -->
+        <div class="form-row row">
+          <label class="sr-only">Old Category</label>
+          <input
+            type="text"
+            formControlName="category"
+            placeholder="Old Category"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': submitted && f.category.errors
+            }"
+          />
+          <!-- add category errors -->
+          <div *ngIf="submitted && f.category.errors" class="invalid-feedback">
+            <div *ngIf="f.category.errors.required">Category is required</div>
+            <div *ngIf="f.category.errors.maxlength">
+              Category name must not be more than 20 characters
+            </div>
+          </div>
+        </div>
+        <!-- new category -->
+        <div class="form-row row">
+          <label class="sr-only">New Category</label>
+          <input
+            type="text"
+            formControlName="newCategory"
+            placeholder="New Category"
+            class="form-control"
+            [ngClass]="{
+              'is-invalid': submitted && f.newCategory.errors
+            }"
+          />
+          <!-- add category errors -->
+          <div
+            *ngIf="submitted && f.newCategory.errors"
+            class="invalid-feedback"
+          >
+            <div *ngIf="f.newCategory.errors.required">
+              Category is required
+            </div>
+            <div *ngIf="f.newCategory.errors.maxlength">
+              Category name must not be more than 20 characters
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- submit -->
+      <div class="row text-center">
+        <div class="col-sm-1"></div>
+        <div class="col-sm-10 text-secondary">
+          <button
+            class="btn btn-outline-light btn-block mt-2 text-uppercase"
+            type="submit"
+          >
+            Update Category
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

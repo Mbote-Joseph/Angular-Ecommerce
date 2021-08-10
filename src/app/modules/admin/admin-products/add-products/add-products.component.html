@@ -1,0 +1,129 @@
+<div class="card">
+  <div class="card-title text-uppercase text-center">
+    <h3 class="pt-3 mb-0">Add</h3>
+  </div>
+  <div class="card-body">
+    <!-- product picture -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Product Picture(s)</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <label class="btn btn-default w-50 text-uppercase">
+          Add Picture<input type="file" multiple hidden />
+        </label>
+      </div>
+    </div>
+    <!-- product name -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Name</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="text"
+          class="form-control"
+          name="product-details"
+          id="product-details"
+          placeholder="Product Name"
+        />
+      </div>
+    </div>
+    <!-- product description -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Description</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="text"
+          class="form-control"
+          name="product-description"
+          id="product-description"
+          placeholder="Product Description"
+        />
+      </div>
+    </div>
+    <!-- product price -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Price</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="number"
+          class="form-control"
+          name="product-price"
+          id="product-price"
+          placeholder="Product Price"
+          min="0.0"
+          max="10000.0"
+          step="0.1"
+        />
+      </div>
+    </div>
+    <!-- product discount(optional) -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Discount</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="number"
+          class="form-control"
+          name="product-Discount"
+          id="product-Discount"
+          placeholder="Product Discount"
+          min="0.0"
+          max="1000.0"
+          step="0.1"
+        />
+      </div>
+    </div>
+    <!-- product seller -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Seller ID</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="number"
+          class="form-control"
+          name="product-Seller"
+          id="product-Seller"
+          placeholder="Product Seller"
+          min="1"
+        />
+      </div>
+    </div>
+    <!-- product category -->
+    <div class="row mb-3">
+      <div class="col-sm-3">
+        <h4 class="mb-0">Category</h4>
+      </div>
+      <div class="col-sm-9 text-secondary">
+        <select class="form-control">
+          <option value="" disabled selected hidden>Category</option>
+          <option
+            *ngFor="let category of categories"
+            [value]="category"
+            class="text-capitalize"
+          >
+            {{ category }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <!-- add -item -->
+    <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-9 text-secondary">
+        <input
+          type="button"
+          class="btn btn-primary px-4 w-50 text-uppercase"
+          value="Add Product"
+        />
+      </div>
+    </div>
+  </div>
+</div>

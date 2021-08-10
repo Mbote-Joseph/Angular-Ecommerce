@@ -1,0 +1,24 @@
+<nav class="navbar navbar-expand navbar-light bg-light justify-content-between">
+  <a
+    class="nav-item nav-link"
+    [routerLink]="['./delivery']"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Delivery</a
+  >
+  <a
+    class="nav-item nav-link"
+    [routerLink]="['./payment']"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Payment</a
+  >
+  <a
+    class="nav-item nav-link"
+    [routerLink]="['./summary']"
+    [routerLinkActive]="['active']"
+    [routerLinkActiveOptions]="{ exact: true }"
+    >Summary</a
+  >
+</nav>
+<router-outlet></router-outlet>
