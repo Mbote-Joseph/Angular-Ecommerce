@@ -11,7 +11,7 @@ export class Review {
     public product_slug: string,
     public product_name: string,
     public product_seller_id: number,
-    public created_at: date
+    public created_at: string
   ) {}
 }
 @Component({
