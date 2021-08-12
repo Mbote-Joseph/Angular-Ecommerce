@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountAdminService } from 'src/app/services/account-admin.service';
 
 @Component({
   selector: 'app-admin-login',
@@ -10,8 +12,13 @@ export class AdminLoginComponent implements OnInit {
   adminLoginForm!: FormGroup;
   submitted = false;
   currentYear!: number;
+  loading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private account: AccountAdminService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.currentYear = new Date().getFullYear();
@@ -29,11 +36,22 @@ export class AdminLoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-
     // stop here if form is invalid
     if (this.adminLoginForm.invalid) {
       return;
     }
+
+    this.loading = true;
+    this.submitted = true;
+    this.account.login(this.f.email.value, this.f.password.value).subscribe({
+      next: (token: string) => {
+        this.account.userToken = token;
+        this.router.navigateByUrl('/user/account');
+      },
+      error: (error) => {
+        this.loading = false;
+        console.error(error);
+      },
+    });
   }
 }

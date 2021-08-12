@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AccountSellerService } from 'src/app/services/account-seller.service';
 
 @Component({
   selector: 'app-seller-login',
@@ -9,8 +11,13 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 export class SellerLoginComponent implements OnInit {
   sellerLoginForm!: FormGroup;
   submitted = false;
+  loading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private account: AccountSellerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.sellerLoginForm = this.formBuilder.group({
@@ -26,11 +33,22 @@ export class SellerLoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
-
     // stop here if form is invalid
     if (this.sellerLoginForm.invalid) {
       return;
     }
+
+    this.loading = true;
+    this.submitted = true;
+    this.account.login(this.f.email.value, this.f.password.value).subscribe({
+      next: (token: string) => {
+        this.account.userToken = token;
+        this.router.navigateByUrl('/user/account');
+      },
+      error: (error) => {
+        this.loading = false;
+        console.error(error);
+      },
+    });
   }
 }
