@@ -46,7 +46,7 @@ export class AdminLoginComponent implements OnInit {
     this.account.login(this.f.email.value, this.f.password.value).subscribe({
       next: (token: string) => {
         this.account.userToken = token;
-        this.router.navigateByUrl('/user/account');
+        this.router.navigateByUrl('/admin/account');
       },
       error: (error) => {
         this.loading = false;
