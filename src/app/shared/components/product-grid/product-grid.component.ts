@@ -17,6 +17,7 @@ export class ProductGridComponent implements OnInit {
   currentViewProduct: any = {};
   currentProductId!: string;
   modalDisplay = 'none';
+  rating: any[] = [];
 
   constructor(private dataService: DataService, private router: Router) {}
 

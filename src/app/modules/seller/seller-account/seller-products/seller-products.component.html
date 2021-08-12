@@ -10,7 +10,8 @@
     class="carousel slide"
     data-ride="carousel"
   >
-    <div class="carousel-inner">
+    <!-- Item Card -->
+    <div class="carousel-inner" *ngFor="let product of products">
       <div class="carousel-item active">
         <div class="row flex-nowrap">
           <div
@@ -18,7 +19,7 @@
             *ngFor="let i of [1, 2, 3, 4]"
           >
             <img src="assets/images/product-4.jpg" alt="" />
-            <h3>Blue T-Shirt</h3>
+            <h3>{{ product.name }}</h3>
             <div
               class="
                 price-offer
@@ -27,12 +28,14 @@
                 align-items-center
               "
             >
-              <p class="price m-0">$50.00</p>
-              <p class="offer m-0 px-1">50% off</p>
+              <p class="price m-0">
+                {{ product.currency }} {{ product.price }}
+              </p>
+              <p class="offer m-0 px-1">{{ product.discount_percent }}</p>
             </div>
 
             <p class="extra-info pt-2 text-muted">
-              Eligible for Shipping To Mars or somewhere else
+              {{ product.details }}
             </p>
             <div
               class="
@@ -59,7 +62,7 @@
                   <i class="fa fa-star-half-o" aria-hidden="true"></i>
                   <i class="fa fa-star-o" aria-hidden="true"></i>
                 </div>
-                <p class="rating m-0">3.7</p>
+                <p class="rating m-0">{{ product.rating }}</p>
               </div>
               <div class="watch px-1">
                 <span>
@@ -71,126 +74,7 @@
           </div>
         </div>
       </div>
-      <div class="carousel-item">
-        <div class="row flex-nowrap">
-          <div
-            class="col-6 col-lg-2 col-md-4 py-3 px-2"
-            *ngFor="let i of [1, 2, 3, 4]"
-          >
-            <img src="assets/images/product-4.jpg" alt="" />
-            <h3>Blue T-Shirt</h3>
-            <div
-              class="
-                price-offer
-                d-flex
-                justify-content-between
-                align-items-center
-              "
-            >
-              <p class="price m-0">$50.00</p>
-              <p class="offer m-0 px-1">50% off</p>
-            </div>
-
-            <p class="extra-info pt-2 text-muted">
-              Eligible for Shipping To Mars or somewhere else
-            </p>
-            <div
-              class="
-                rating-watch
-                d-flex
-                justify-content-between
-                align-items-center
-                flex-nowrap
-              "
-            >
-              <div
-                class="
-                  star-rating
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                  flex-nowrap
-                "
-              >
-                <div class="stars mr-1">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p class="rating m-0">3.7</p>
-              </div>
-              <div class="watch px-1">
-                <span>
-                  <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <div class="row flex-nowrap">
-          <div
-            class="col-6 col-lg-2 col-md-4 py-3 px-2"
-            *ngFor="let i of [1, 2, 3, 4]"
-          >
-            <img src="assets/images/product-4.jpg" alt="" />
-            <h3>Blue T-Shirt</h3>
-            <div
-              class="
-                price-offer
-                d-flex
-                justify-content-around
-                align-items-center
-              "
-            >
-              <p class="price m-0">$50.00</p>
-              <p class="offer m-0 px-1">50% off</p>
-            </div>
-
-            <p class="extra-info pt-2 text-muted">
-              Eligible for Shipping To Mars or somewhere else
-            </p>
-            <div
-              class="
-                rating-watch
-                d-flex
-                justify-content-between
-                align-items-center
-                flex-nowrap
-              "
-            >
-              <div
-                class="
-                  star-rating
-                  d-flex
-                  justify-content-between
-                  align-items-center
-                  flex-nowrap
-                "
-              >
-                <div class="stars mr-1">
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                  <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                  <i class="fa fa-star-o" aria-hidden="true"></i>
-                </div>
-                <p class="rating m-0">3.7</p>
-              </div>
-              <div class="watch px-1">
-                <span>
-                  <i class="fa fa-pencil mr-2" aria-hidden="true"></i>
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- End of the Card Item -->
     </div>
     <a
       class="carousel-control-prev"
