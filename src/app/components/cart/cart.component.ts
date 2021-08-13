@@ -19,6 +19,7 @@ export class CartComponent implements OnInit {
     this.getCartItems();
   }
 
+  // Getting the cartItems
   getCartItems() {
     this.loading = true;
     this.dataService.getAllCartItems().subscribe({
@@ -34,6 +35,7 @@ export class CartComponent implements OnInit {
     });
   }
 
+  // Getting the cartItem list
   getCartItemsList(data: any) {
     let items: any[] = [];
     for (const datum in data) {
