@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from 'src/app/services/account.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-account-home',
@@ -7,11 +8,37 @@ import { AccountService } from 'src/app/services/account.service';
   styleUrls: ['./account-home.component.css'],
 })
 export class AccountHomeComponent implements OnInit {
+  userDetails: any = {};
   loading = false;
 
-  constructor(private accountService: AccountService) {}
+  constructor(
+    private accountService: AccountService,
+    private UserService: UserService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.viewUserInfo();
+  }
+
+  viewUserInfo() {
+    this.loading = true;
+    this.UserService.getUserProfile().subscribe({
+      next: (data: any) => {
+        this.loading = false;
+        this.getUserInfo(data.data);
+      },
+      error: (error) => {
+        console.error(error);
+      },
+    });
+  }
+
+  getUserInfo(data: any) {
+    this.userDetails = {
+      name: data.attributes.user_name,
+      email: data.attributes.user_email
+    };
+  }
 
   logout() {
     this.loading = true;

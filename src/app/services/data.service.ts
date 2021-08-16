@@ -35,10 +35,19 @@ export class DataService {
   // create a cart item
   createCartItem(productId: string, quantity: number): Observable<any> {
     let cartItem = { product_id: productId, quantity: quantity };
+    const token = this.accountService.userToken;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
     return this.httpClient
-      .post(`${API}/cartItems`, {
-        cartItem,
-      })
+      .post(
+        `${API}/cartItems`,
+        {
+          cartItem,
+        },
+        // { headers: headers }
+      )
       .pipe(catchError(this.handleError));
   }
 
@@ -79,6 +88,18 @@ export class DataService {
     });
     return this.httpClient
       .delete(`${API}/cartItems/${cartItemId}`, { headers: headers })
+      .pipe(catchError(this.handleError));
+  }
+
+  // delete cart items
+  deleteCartItems(): Observable<any> {
+    const token = this.accountService.userToken;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.httpClient
+      .delete(`${API}/cartItems`, { headers: headers })
       .pipe(catchError(this.handleError));
   }
 
