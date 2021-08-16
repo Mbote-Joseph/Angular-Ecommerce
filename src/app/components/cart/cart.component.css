@@ -135,7 +135,7 @@ input:focus::-webkit-input-placeholder {
   color: transparent;
 }
 
-.btn {
+.btn.main {
   background-color: #000;
   border-color: #000;
   color: white;
@@ -146,7 +146,7 @@ input:focus::-webkit-input-placeholder {
   border-radius: 0;
 }
 
-.btn:focus {
+.btn.main:focus {
   box-shadow: none;
   outline: none;
   box-shadow: none;
@@ -206,4 +206,9 @@ button:hover {
 .minus,
 .plus {
   cursor: pointer;
+  font-size: 1.3rem;
+}
+
+.quantity {
+  font-size: 1.4rem;
 }

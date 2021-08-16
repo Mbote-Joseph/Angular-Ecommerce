@@ -9,7 +9,7 @@ import { UserService } from '../_services/user.service';
 export class AccountDetailsComponent implements OnInit {
   userInfo: any[] = [];
   userDetails: any[] = [];
-  loading = true;
+  loading = false;
 
   constructor(private UserService: UserService) {}
 
@@ -42,7 +42,7 @@ export class AccountDetailsComponent implements OnInit {
       phone: item.attributes.phone ? item.attributes.phone : 'N/A',
     });
 
-    console.log(items[0]);
+    // console.log(items[0]);
 
     return items;
   }

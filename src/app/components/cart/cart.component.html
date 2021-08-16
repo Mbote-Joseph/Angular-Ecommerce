@@ -23,100 +23,120 @@
                   <b>Shopping Cart</b>
                   <span
                     *ngIf="loading"
-                    class="spinner-border spinner-border-sm mr-1"
+                    class="spinner-border spinner-border-sm mx-2"
                     style.color="var(--theme-color, orange)"
                   >
                   </span>
                 </h4>
               </div>
               <div class="col align-self-center">
-                <button type="submit" class="btn btn-default mt-0 py-2">
+                <button
+                  type="submit"
+                  class="btn main btn-default mt-0 py-2"
+                  (click)="deleteAllItems()"
+                >
                   Delete All Items
                 </button>
               </div>
               <div class="col align-self-center text-right text-muted">
-                {{ items.length }} items
+                {{ cartMeta.itemsCount }} items
               </div>
             </div>
-          </div>
-          <div class="row border-top border-bottom" *ngIf="items">
+            <div class="row border-top border-bottom" *ngIf="items">
+              <div
+                class="
+                  row
+                  main
+                  border-bottom
+                  py-2
+                  text-muted
+                  small
+                  text-uppercase
+                  align-items-center
+                "
+              >
+                <div class="col-2">Image</div>
+                <div class="col">Product</div>
+                <div class="col">Quantity</div>
+                <div class="col">Unit Price</div>
+                <div class="col">Total Price</div>
+              </div>
+              <div
+                class="row main align-items-center"
+                *ngFor="let item of items"
+              >
+                <div class="col-2">
+                  <img class="img-fluid" [src]="item.imagePath" />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">{{ item.name }}</div>
+                  <div class="row">{{ item.description }}</div>
+                </div>
+                <div class="col d-flex p-0">
+                  <a
+                    class="minus btn btn-outline-dark border-0 rounded-0"
+                    (click)="minusItem(item.id, item.quantity)"
+                    [ngClass]="{ disabled: +item.quantity < 2 }"
+                  >
+                    -
+                  </a>
+                  <a class="quantity btn">{{ item.quantity }}</a>
+                  <a
+                    class="plus btn btn-outline-dark border-0 rounded-0"
+                    (click)="plusItem(item.id, item.quantity)"
+                    >+</a
+                  >
+                </div>
+                <div class="col">{{ item.currency }} {{ item.price }}</div>
+                <div class="col">
+                  {{ item.currency }}{{ item.totalPrice }}
+                  <span class="close" (click)="deleteItem(item.id)">
+                    <i class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex">
+              <div class="col"></div>
+              <div class="col"></div>
+              <div class="col"></div>
+              <div class="col"></div>
+              <div
+                class="
+                  col
+                  total-price
+                  align-self-center
+                  h3
+                  py-3
+                  font-weight-bold
+                "
+              >
+                {{ cartMeta.currency }} {{ cartMeta.totalPrice }}
+              </div>
+            </div>
+
             <div
               class="
-                row
-                main
-                border-bottom
-                py-2
-                text-muted
-                small
-                text-uppercase
+                back-to-shop
+                d-flex
+                flex-row
+                justify-content-between
                 align-items-center
               "
             >
-              <div class="col-2">Image</div>
-              <div class="col">Product</div>
-              <div class="col">Quantity</div>
-              <div class="col">Unit Price</div>
-              <div class="col">Total Price</div>
-            </div>
-            <div class="row main align-items-center" *ngFor="let item of items">
-              <div class="col-2">
-                <img class="img-fluid" [src]="item.imagePath" />
-              </div>
-              <div class="col">
-                <div class="row text-muted">{{ item.name }}</div>
-                <div class="row">{{ item.description }}</div>
-              </div>
-              <div class="col">
-                <a class="minus" (click)="minusItem(item.id, item.quantity)">
-                  -
-                </a>
-                <a>{{ item.quantity }}</a>
-                <a class="plus" (click)="plusItem(item.id, item.quantity)">+</a>
-              </div>
-              <div class="col">{{ item.currency }} {{ item.price }}</div>
-              <div class="col">
-                {{ item.currency }}{{ item.totalPrice }}
-                <span class="close" (click)="deleteItem(item.id)">
-                  <i class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
-                </span>
-              </div>
+              <a routerLink="/home">
+                &#8592;
+                <span class="text-muted">Back to shop</span>
+              </a>
+              <button
+                class="btn main btn-default w-25 mt-0 py-2"
+                routerLink="/user/account/orders/checkout"
+              >
+                Check Out
+              </button>
             </div>
           </div>
-          <div class="row d-flex">
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-            <div
-              class="col total-price align-self-center h3 py-3 font-weight-bold"
-              *ngIf="grandTotal"
-            >
-              {{ currency }} {{ grandTotal }}
-            </div>
-          </div>
-
-          <div
-            class="
-              back-to-shop
-              d-flex
-              flex-row
-              justify-content-between
-              align-items-center
-            "
-          >
-            <a routerLink="/home">
-              &#8592;
-              <span class="text-muted">Back to shop</span>
-            </a>
-            <button
-              class="btn btn-default w-25 mt-0 py-2"
-              routerLink="/user/account/orders/checkout"
-            >
-              Check Out
-            </button>
-          </div>
-        </div>
-        <!-- <div class="col-md-4 summary">
+          <!-- <div class="col-md-4 summary">
         <div>
           <h5><b>Summary</b></h5>
         </div>
@@ -142,8 +162,10 @@
         </div>
         <button class="btn">CHECKOUT</button>
       </div> -->
+        </div>
       </div>
     </div>
+    <!-- </main> -->
+    <app-footer></app-footer>
   </div>
 </main>
-<app-footer></app-footer>

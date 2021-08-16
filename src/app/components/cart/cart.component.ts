@@ -10,8 +10,7 @@ export class CartComponent implements OnInit {
   cartItems: any[] = [];
   items: any[] = [];
   loading = false;
-  grandTotal = 0;
-  currency = '';
+  cartMeta: any = { currency: '', totalPrice: '', itemsCount: '' };
 
   constructor(private dataService: DataService) {}
 
@@ -24,6 +23,11 @@ export class CartComponent implements OnInit {
     this.dataService.getAllCartItems().subscribe({
       next: (data: any) => {
         this.cartItems = data.data;
+        this.cartMeta = {
+          currency: data.meta.currency,
+          itemsCount: data.meta.cart_items_count,
+          totalPrice: data.meta.total_price,
+        };
         this.items = this.getCartItemsList(this.cartItems);
         this.loading = false;
       },
@@ -56,11 +60,11 @@ export class CartComponent implements OnInit {
           totalPrice: item.attributes.total_price,
         });
 
-        if (!this.currency) {
-          this.currency = item.attributes.currency;
-        }
+        // if (!this.currency) {
+        //   this.currency = item.attributes.currency;
+        // }
 
-        this.grandTotal += +item.attributes.total_price;
+        // this.grandTotal += +item.attributes.total_price;
       }
     }
     return items;
@@ -71,8 +75,8 @@ export class CartComponent implements OnInit {
     this.loading = true;
     this.dataService.editCartItem(itemId, `${+quantity + 1}`).subscribe(() => {
       this.loading = false;
+      this.getCartItems();
     });
-    this.getCartItems();
   }
 
   // minus item
@@ -80,14 +84,24 @@ export class CartComponent implements OnInit {
     this.loading = true;
     this.dataService.editCartItem(itemId, `${+quantity - 1}`).subscribe(() => {
       this.loading = false;
+      this.getCartItems();
     });
-    this.getCartItems();
+    // this.getCartItems();
   }
 
   // delete item
   deleteItem(itemId: string) {
     this.loading = true;
     this.dataService.deleteCartItem(itemId).subscribe(() => {
+      this.getCartItems();
+      this.loading = true;
+    });
+  }
+
+  // delete all cart items
+  deleteAllItems() {
+    this.loading = true;
+    this.dataService.deleteCartItems().subscribe(() => {
       this.getCartItems();
       this.loading = true;
     });
