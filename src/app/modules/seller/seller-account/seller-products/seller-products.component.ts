@@ -43,7 +43,7 @@ export class SellerProductsComponent implements OnInit {
         'https://peaceful-beyond-74495.herokuapp.com/api/seller/products'
       )
       .subscribe((response) => {
-        console.log(response);
+        // console.log(response);
         this.products = response;
       });
   }
