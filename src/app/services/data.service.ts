@@ -41,13 +41,7 @@ export class DataService {
       Authorization: `Bearer ${token}`,
     });
     return this.httpClient
-      .post(
-        `${API}/cartItems`,
-        {
-          cartItem,
-        }
-        // { headers: headers }
-      )
+      .post(`${API}/cartItems`, cartItem, { headers: headers })
       .pipe(catchError(this.handleError));
   }
 

@@ -110,6 +110,7 @@
                   py-3
                   font-weight-bold
                 "
+                *ngIf="cartMeta.totalPrice !== 0"
               >
                 {{ cartMeta.currency }} {{ cartMeta.totalPrice }}
               </div>
