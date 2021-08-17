@@ -60,12 +60,18 @@ export class ProductGridComponent implements OnInit {
     this.modalDisplay = 'none';
   }
 
+  // add item to cart
   addToCart(id: string, quantity: number) {
-    this.dataService.createCartItem(id, quantity).subscribe((resp) => {
-      console.log(resp);
-      this.router.navigate(['/cart']);
+    this.dataService.createCartItem(id, quantity).subscribe({
+      next: (resp) => {
+        this.router.navigate(['/cart']);
+      },
+      error: (error) => {
+        console.error(error);
+        this.router.navigate(['../']);
+      },
     });
 
-    this.router.navigate(['/cart']);
+    // this.router.navigate(['/cart']);
   }
 }
