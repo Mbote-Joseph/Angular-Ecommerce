@@ -2,7 +2,11 @@
   <div class="row justify-content-center">
     <div class="col-lg-8 col-md-10 col-sm-12">
       <!-- -->
-      <form class="form-register pt-5 pb-3">
+      <form
+        class="form-register pt-5 pb-3"
+        [formGroup]="deliveryForm"
+        (ngSubmit)="onSubmit()"
+      >
         <!-- personal details -->
         <fieldset>
           <legend>
@@ -10,27 +14,89 @@
             Personal Details
           </legend>
           <!-- name -->
-          <div class="form-row mb-3">
-            <div class="col">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="First name"
-              />
-            </div>
-            <div class="col">
-              <input type="text" class="form-control" placeholder="Last name" />
+          <div class="form-group">
+            <div class="form-row mb-3">
+              <!-- first name -->
+              <div class="col">
+                <label class="sr-only">First Name</label>
+                <input
+                  type="text"
+                  formControlName="firstName"
+                  placeholder="First Name"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.firstName.errors
+                  }"
+                />
+              </div>
+              <!-- second name -->
+              <div class="col">
+                <label class="sr-only">Last Name</label>
+                <input
+                  type="text"
+                  formControlName="lastName"
+                  placeholder="Last Name"
+                  class="form-control"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.lastName.errors
+                  }"
+                />
+              </div>
+              <!-- first name error -->
+              <div
+                *ngIf="submitted && f.firstName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.firstName.errors.required">
+                  First Name is required
+                </div>
+              </div>
+              <!-- last name error -->
+              <div
+                *ngIf="submitted && f.lastName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="f.lastName.errors.required">
+                  Last Name is required
+                </div>
+              </div>
             </div>
           </div>
-
-          <!-- mobile number -->
-          <div class="form-row mb-3">
-            <div class="col">
-              <input
-                type="tel"
-                class="form-control"
-                placeholder="Mobile Number"
-              />
+          <!-- email -->
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col">
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control"
+                  placeholder="Email Address"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                />
+              </div>
+              <!-- email error -->
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">
+                  Email must be a valid email address
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- phone number -->
+          <div class="form-group">
+            <div class="form-row mb-3">
+              <div class="col">
+                <input
+                  type="tel"
+                  formControlName="phoneNumber"
+                  class="form-control"
+                  placeholder="Phone Number"
+                  [ngClass]="{
+                    'is-invalid': submitted && f.phoneNumber.errors
+                  }"
+                />
+              </div>
             </div>
           </div>
 
@@ -41,18 +107,26 @@
                 type="text"
                 class="form-control"
                 placeholder="Delivery Address"
+                formControlName="address"
+                [ngClass]="{ 'is-invalid': submitted && f.address.errors }"
               />
             </div>
           </div>
         </fieldset>
 
         <!-- location details -->
+        <!-- region -->
         <fieldset class="my-2">
           <legend>Location</legend>
           <div class="form align-items-center">
             <div class="col-auto my-1">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Region</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <select
+                class="custom-select mr-sm-2"
+                id="inlineFormCustomSelect"
+                formControlName="region"
+                [ngClass]="{ 'is-invalid': submitted && f.region.errors }"
+              >
                 <option selected>Choose...</option>
                 <option value="1">Eastern</option>
                 <option value="2">Central</option>
@@ -62,10 +136,16 @@
               </select>
             </div>
           </div>
+          <!-- city -->
           <div class="form align-items-center">
             <div class="col-auto my-1">
               <label class="mr-sm-2" for="inlineFormCustomSelect">City:</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <select
+                class="custom-select mr-sm-2"
+                id="inlineFormCustomSelect"
+                formControlName="city"
+                [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+              >
                 <option selected>Choose...</option>
                 <option value="1">Nairobi</option>
                 <option value="2">Mombasa</option>
@@ -82,7 +162,12 @@
           <div class="form align-items-center">
             <div class="col-auto my-1">
               <label class="mr-sm-2" for="inlineFormCustomSelect">Select</label>
-              <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+              <select
+                class="custom-select mr-sm-2"
+                id="inlineFormCustomSelect"
+                formControlName="pickup"
+                [ngClass]="{ 'is-invalid': submitted && f.pickup.errors }"
+              >
                 <option selected>Select...</option>
                 <option value="1">CBD</option>
                 <option value="2">Westland</option>
@@ -96,16 +181,17 @@
         <!-- submit -->
         <div class="pt-2 d-flex justify-content-end">
           <button
-            type="button"
+            type="submit"
             class="btn btn-primary btn-lg btn-default mr-2 px-4"
-            [routerLink]="['../payment']"
           >
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1">
+            </span>
             Next
           </button>
           <button
-            type="button"
+            type="reset"
             class="btn btn-secondary btn-lg btn-default"
-            [routerLink]="['../../']"
+            (click)="onReset()"
           >
             Cancel
           </button>

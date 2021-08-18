@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MustMatch } from 'src/app/shared/helpers/must-match.validator';
+import { Router } from '@angular/router';
+import { UserService } from '../../../_services/user.service';
 
 @Component({
   selector: 'app-delivery',
@@ -10,29 +11,34 @@ import { MustMatch } from 'src/app/shared/helpers/must-match.validator';
 export class DeliveryComponent implements OnInit {
   deliveryForm!: FormGroup;
   submitted = false;
+  loading = false;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
-    this.deliveryForm = this.formBuilder.group(
-      {
-        title: ['', Validators.required],
-        firstName: ['', Validators.required],
-        lastName: ['', Validators.required],
-        email: ['', [Validators.required, Validators.email]],
-        password: ['', [Validators.required, Validators.minLength(6)]],
-        confirmPassword: ['', Validators.required],
-        acceptTerms: [false, Validators.requiredTrue],
-      },
-      {
-        validator: MustMatch('password', 'confirmPassword'),
-      }
-    );
+    this.deliveryForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
+      region: ['', Validators.required],
+      city: ['', Validators.required],
+      pickup: ['', Validators.required],
+    });
   }
 
   // convenience getter for easy access to form fields
   get f() {
     return this.deliveryForm.controls;
+  }
+
+  get location() {
+    return `${this.f.city.value}, ${this.f.region.value}`;
   }
 
   onSubmit() {
@@ -43,14 +49,34 @@ export class DeliveryComponent implements OnInit {
       return;
     }
 
+    this.loading = true;
+    this.userService
+      .createShippingDetail(
+        this.f.phoneNumber.value,
+        this.f.region.value,
+        this.location
+        // this.f.city.value,
+        // this.f.pickup.value
+      )
+      .subscribe({
+        next: () => {
+          this.loading = false;
+          this.router.navigate(['../payment']);
+        },
+        error: () => {
+          this.loading = false;
+        },
+      });
+
     // display form values on success
-    alert(
-      'SUCCESS!! :-)\n\n' + JSON.stringify(this.deliveryForm.value, null, 4)
-    );
+    // alert(
+    //   'SUCCESS!! :-)\n\n' + JSON.stringify(this.deliveryForm.value, null, 4)
+    // );
   }
 
   onReset() {
     this.submitted = false;
     this.deliveryForm.reset();
+    this.router.navigate(['../../']);
   }
 }
