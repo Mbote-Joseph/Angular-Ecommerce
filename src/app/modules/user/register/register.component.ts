@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
 
-  get getName() {
+  get fullName() {
     return `${this.capitalizeFirstLetter(this.f.firstName.value)}
       ${this.capitalizeFirstLetter(this.f.lastName.value)}`;
   }
@@ -61,7 +61,7 @@ export class RegisterComponent implements OnInit {
     this.loading = true;
     this.account
       .register(
-        this.getName,
+        this.fullName,
         this.f.email.value,
         this.f.password.value,
         this.f.confirmPassword.value
