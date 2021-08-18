@@ -1,12 +1,13 @@
 <div class="container order">
   <div class="row m-0 pt-4 pb-2 border-bottom">
-    <div class="col-6">
+    <div class="col-6" *ngFor="let order of orders">
       <img class="pr-4" src="{{ imagePath }}/product-10.jpg" alt="" />
     </div>
     <div class="col-6">
       <div class="desc">
         <h3>Description</h3>
         <p>
+          <!-- {{ order.description}} -->
           Resists everything except the desire to play. This tennis shoe has
           highly effective shock absorption. Good things last.
         </p>
@@ -22,6 +23,7 @@
       <div class="cost">
         <h3>Cost</h3>
         <p>$49.50</p>
+        <!-- {{ order.price }} -->
       </div>
     </div>
     <div

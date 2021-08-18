@@ -41,7 +41,7 @@ export class ReviewsComponent implements OnInit {
         `https://peaceful-beyond-74495.herokuapp.com/api/products/${productReviews}/productReviews/${productReviews}`
       )
       .subscribe((response) => {
-        // console.log(response);
+        console.log(response);
         this.productsReviews = response;
       });
   }

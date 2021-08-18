@@ -35,6 +35,7 @@ export class SellerProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProducts();
+    //this.updateProducts();
   }
 
   getProducts() {
@@ -47,4 +48,14 @@ export class SellerProductsComponent implements OnInit {
         this.products = response;
       });
   }
+  // updateProducts() {
+  //   this.httpClient
+  //     .patch<any>(
+  //       `https://peaceful-beyond-74495.herokuapp.com/api/seller/products/${id}`
+  //     )
+  //     .subscribe((response) => {
+  //       console.log(response);
+  //       this.products = response;
+  //     });
+  // }
 }
