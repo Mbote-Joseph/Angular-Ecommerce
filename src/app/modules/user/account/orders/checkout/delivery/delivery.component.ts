@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../../_services/user.service';
 
 @Component({
@@ -12,10 +12,12 @@ export class DeliveryComponent implements OnInit {
   deliveryForm!: FormGroup;
   submitted = false;
   loading = false;
+  user = { name: '', email: '' };
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService
   ) {}
 
@@ -29,6 +31,14 @@ export class DeliveryComponent implements OnInit {
       region: ['', Validators.required],
       city: ['', Validators.required],
       pickup: ['', Validators.required],
+    });
+    this.userService.getUserProfile().subscribe({
+      next: (data) => {
+        this.user = {
+          name: data.data.attributes.user_name,
+          email: data.data.attributes.user_email,
+        };
+      },
     });
   }
 
@@ -61,7 +71,7 @@ export class DeliveryComponent implements OnInit {
       .subscribe({
         next: () => {
           this.loading = false;
-          this.router.navigate(['../payment']);
+          this.router.navigate(['../payment'], { relativeTo: this.route });
         },
         error: () => {
           this.loading = false;
@@ -77,6 +87,6 @@ export class DeliveryComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.deliveryForm.reset();
-    this.router.navigate(['../../']);
+    this.router.navigate(['../../'], { relativeTo: this.route });
   }
 }

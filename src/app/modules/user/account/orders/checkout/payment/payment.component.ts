@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { OrdersComponent } from '../../orders.component';
 import { DataService } from 'src/app/services/data.service';
-import { compileDeclareInjectorFromMetadata } from '@angular/compiler';
 
 export class Orders {
   constructor(public shipping_id: number, public payment_id: number) {}

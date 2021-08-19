@@ -30,6 +30,23 @@ export class UserService {
       .pipe(catchError(this.handleError));
   }
 
+  // get userDetails
+  // getUserDetails(): Observable<any> {
+  //   let user = new Observable( {name: '', email:''});
+  //   this.getUserProfile().subscribe({
+  //     next: (data: any) => {
+  //       user = {
+  //         name: data.data.attributes.user_name,
+  //         email: data.data.attributes.user_email,
+  //       };
+  //     },
+  //     error: (error) => {
+  //       console.error(error);
+  //     },
+  //   });
+  //   return user;
+  // }
+
   // edit user profile name
   editUserProfileName(name: string): Observable<any> {
     return this.http
@@ -60,19 +77,11 @@ export class UserService {
   }
 
   // ## ORDERS
-  // UNPAID ORDERS
 
   // view all orders
-  viewAllUnpaidOrders(): Observable<any> {
+  viewAllOrders(): Observable<any> {
     return this.http
-      .get(`${API}/unpaid/orders`, { headers: this.headers })
-      .pipe(catchError(this.handleError));
-  }
-
-  // view an order
-  viewUnpaidOrder(orderId: string): Observable<any> {
-    return this.http
-      .get(`${API}/unpaid/orders/${orderId}`, { headers: this.headers })
+      .get(`${API}/orders`, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -94,7 +103,7 @@ export class UserService {
     payment_id: string
   ): Observable<any> {
     return this.http.patch(
-      `${API}/unpaid/orders/${newOrderId}`,
+      `${API}/orders/${newOrderId}`,
       { shipping_id, payment_id },
       { headers: this.headers }
     );
