@@ -57,6 +57,30 @@ export class DataService {
       .pipe(catchError(this.handleError));
   }
 
+  //Get admin
+  getAllAdminDetails(): Observable<any> {
+    const token = this.accountService.userToken;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.httpClient
+      .get(`${API}/api/admin/auth/admin`, { headers })
+      .pipe(catchError(this.handleError));
+  }
+
+  //Get admin
+  getAllSellerDetails(): Observable<any> {
+    const token = this.accountService.userToken;
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    });
+    return this.httpClient
+      .get(`${API}/api/admin/auth/seller`, { headers })
+      .pipe(catchError(this.handleError));
+  }
+
   // edit a cart item
   editCartItem(cartItemId: string, quantity: string): Observable<any> {
     const token = this.accountService.userToken;
