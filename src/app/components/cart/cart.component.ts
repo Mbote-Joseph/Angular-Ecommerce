@@ -59,12 +59,6 @@ export class CartComponent implements OnInit {
           quantity: item.attributes.quantity,
           totalPrice: item.attributes.total_price,
         });
-
-        // if (!this.currency) {
-        //   this.currency = item.attributes.currency;
-        // }
-
-        // this.grandTotal += +item.attributes.total_price;
       }
     }
     return items;

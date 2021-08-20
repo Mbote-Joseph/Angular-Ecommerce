@@ -26,6 +26,16 @@ export class AccountService {
     return localStorage.getItem('token') || '';
   }
 
+  // set seller
+  public set sellerToken(token: string) {
+    localStorage.setItem('seller', token);
+  }
+
+  // get seller
+  public get sellerToken(): string {
+    return localStorage.getItem('seller') || '';
+  }
+
   // login
   login(email: string, password: string): Observable<any> {
     return this.http
@@ -33,10 +43,28 @@ export class AccountService {
       .pipe(catchError(this.handleError));
   }
 
+  // seller login
+  sellerLogin(email: string, password: string): Observable<any> {
+    return this.http
+      .post(
+        `${API}/seller/login`,
+        { email, password },
+        { responseType: 'text' }
+      )
+      .pipe(catchError(this.handleError));
+  }
+
   // logout
   logout(): Observable<any> {
     return this.http
       .post(`${API}/logout`, {})
+      .pipe(catchError(this.handleError));
+  }
+
+  // seller logout
+  sellerLogout(): Observable<any> {
+    return this.http
+      .post(`${API}/seller/logout`, {})
       .pipe(catchError(this.handleError));
   }
 

@@ -1,44 +1,133 @@
 <div class="container order">
   <div class="row m-0 pt-4 pb-2 border-bottom">
-    <div class="col-6" *ngFor="let order of orders">
-      <img class="pr-4" src="{{ imagePath }}/product-10.jpg" alt="" />
-    </div>
-    <div class="col-6">
-      <div class="desc">
-        <h3>Description</h3>
-        <p>
-          <!-- {{ order.description}} -->
-          Resists everything except the desire to play. This tennis shoe has
-          highly effective shock absorption. Good things last.
-        </p>
+    <!-- cart card -->
+    <!-- <div class="container-md py-5"> -->
+    <div class="card">
+      <div class="row">
+        <div class="col-md-12 cart">
+          <div class="title">
+            <div class="row">
+              <div class="col">
+                <h4>
+                  <b>Shopping Cart</b>
+                  <span
+                    *ngIf="loading"
+                    class="spinner-border spinner-border-sm mx-2"
+                    style.color="var(--theme-color, orange)"
+                  >
+                  </span>
+                </h4>
+              </div>
+              <div class="col align-self-center">
+                <button type="submit" class="btn main btn-default mt-0 py-2">
+                  Delete All Items
+                </button>
+              </div>
+              <div class="col align-self-center text-right text-muted">
+                {{ cartMeta.itemsCount }} items
+              </div>
+            </div>
+            <div class="row border-top border-bottom" *ngIf="items">
+              <div
+                class="
+                  row
+                  main
+                  border-bottom
+                  py-2
+                  text-muted
+                  small
+                  text-uppercase
+                  align-items-center
+                "
+              >
+                <div class="col-2">Image</div>
+                <div class="col">Product</div>
+                <div class="col">Quantity</div>
+                <div class="col">Unit Price</div>
+                <div class="col">Total Price</div>
+              </div>
+              <div
+                class="row main align-items-center"
+                *ngFor="let item of cartItems"
+              >
+                <div class="col-2">
+                  <img class="img-fluid" [src]="item.imagePath" />
+                </div>
+                <div class="col">
+                  <div class="row text-muted">{{ item.name }}</div>
+                  <div class="row">{{ item.description }}</div>
+                </div>
+                <div class="col d-flex p-0">
+                  <a
+                    class="minus btn btn-outline-dark border-0 rounded-0"
+                    (click)="minusItem(item.id, item.quantity)"
+                    [ngClass]="{ disabled: +item.quantity < 2 }"
+                  >
+                    -
+                  </a>
+                  <a class="quantity btn">{{ item.quantity }}</a>
+                  <a
+                    class="plus btn btn-outline-dark border-0 rounded-0"
+                    (click)="plusItem(item.id, item.quantity)"
+                    >+</a
+                  >
+                </div>
+                <div class="col">{{ item.currency }} {{ item.price }}</div>
+                <div class="col">
+                  {{ item.currency }}{{ item.totalPrice }}
+                  <span class="close" (click)="deleteItem(item.id)">
+                    <i class="fa fa-2x fa-trash-o" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="row d-flex">
+              <div class="col"></div>
+              <div class="col"></div>
+              <div class="col"></div>
+              <div class="col"></div>
+              <div
+                class="
+                  col
+                  total-price
+                  align-self-center
+                  h3
+                  py-3
+                  font-weight-bold
+                "
+                *ngIf="cartMeta.totalPrice !== 0"
+              >
+                {{ cartMeta.currency }} {{ cartMeta.totalPrice }}
+              </div>
+            </div>
+
+            <div
+              class="
+                back-to-shop
+                d-flex
+                flex-row
+                justify-content-between
+                align-items-center
+              "
+            >
+              <a routerLink="/home">
+                &#8592;
+                <span class="text-muted">Back to shop</span>
+              </a>
+              <button
+                class="btn main btn-default w-25 mt-0 py-2"
+                routerLink="/user/account/orders/checkout"
+              >
+                Check Out
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-6">
-      <div class="quantity">
-        <h3>Quantity</h3>
-        <p>1</p>
-      </div>
-    </div>
-    <div class="col-6">
-      <div class="cost">
-        <h3>Cost</h3>
-        <p>$49.50</p>
-        <!-- {{ order.price }} -->
-      </div>
-    </div>
-    <div
-      class="col-6 d-flex flex-column justify-content-center align-items-center"
-    >
-      <div class="counter d-flex justify-content-center align-items-center">
-        <i class="fa fa-heart-o" aria-hidden="true"></i>
-        <i class="fa fa-trash-o" aria-hidden="true"></i>
-        <i class="fa fa-minus-square-o" aria-hidden="true"></i>
-        <span class="px-2">1</span>
-        <i class="fa fa-plus-square-o" aria-hidden="true"></i>
-      </div>
-      <h3>Total: <span>$49.50</span></h3>
-    </div>
+    <!-- </div> -->
   </div>
+
   <div class="row justify-content-end flex-row pt-3 pb-4">
     <div class="col-6"></div>
     <div class="col-6"></div>
@@ -52,7 +141,9 @@
     </div>
   </div>
 </div>
-<div class="container px-4 my-5">
+
+<!-- recent -->
+<!-- <div class="container px-4 my-5">
   <h2 class="title">Recent Products</h2>
   <div class="row mx-n2">
     <div class="col-6 col-lg-2 col-md-4 py-3 px-2">
@@ -251,4 +342,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
